@@ -35,31 +35,30 @@ footer
   display: none
 
 #toaster
-  display: flex
-  height: 100%
+  height: 90%
   width: 250px
-  position: relative
-  left: calc(100% - 250px)
-  bottom: 100%
-  z-index: 10
-  flex-flow: column nowrap
-  gap: 18px 0
-  background: transparent
+  position: fixed
+  right: 18px
+  bottom: 5%
+  z-index: 2
+  background: blue
+  pointer-events: none
   anchor-name: --toast-anchor
 
   & .toast
-    position: absolute
-    margin: 0
-    top: 16px
-    left: calc(100% - 250px)
     position-anchor: --toast-anchor
+    position: relative
+    top: 36px
+    left: calc(100% - 232px)
+    margin: 0
+    pointer-events: auto
 
     &::backdrop
       display: none
 
     &:nth-child(2)
-      top: 116px
+      top: 136px
       border-color: red
     &:nth-child(3)
-      top: 216px
+      top: 236px
       border-color: green
