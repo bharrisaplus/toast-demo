@@ -1,0 +1,38 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    title=Pen
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    link(rel="stylesheet" href="./main.css")
+    script(type="importmap").
+      {
+        "imports": {
+          "app": "./main.mjs"
+        }
+      }
+  body
+    #shell
+      button#lever
+        |A Toast
+    #toaster
+
+    footer#behavior
+      template#toast-container
+        article.toast(popover="manual")
+          button.close
+            | X
+          p
+            | Here's to you
+      script(type="module" defer).
+        import { default as scaffold } from 'app';
+
+        const toasttestapp = scaffold();
+
+        document.addEventListener('DOMContentLoaded', () => {
+          toasttestapp.boot();
+
+          document.querySelector('#lever').addEventListener('click', () => {
+            toasttestapp.newToast();
+          });
+        });
