@@ -35,9 +35,9 @@ footer
   display: none
 
 #toaster
+  display: flex
   height: 90%
   width: 250px
-  display: flex
   position: fixed
   inset: unset
   right: 18px
@@ -47,13 +47,26 @@ footer
   z-index: 2
   background: transparent
   opacity: 0
+  visibility: hidden
   pointer-events: none
   flex-flow: column-reverse nowrap
   gap: 18px 0
   align-items: center
+  transition: opacity 0.5s, visibility 0.5s ease-out allow-discrete
+
+  &::before
+    padding: 1.5px 12px 0
+    background-color: rgba(222, 200, 20, 0.75)
+    border-width: 0
+    border-radius: 18px
+    content: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiMzMzMiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1tZWdhcGhvbmUtaWNvbiBsdWNpZGUtbWVnYXBob25lIj48cGF0aCBkPSJNMTEgNmExMyAxMyAwIDAgMCA4LjQtMi44QTEgMSAwIDAgMSAyMSA0djEyYTEgMSAwIDAgMS0xLjYuOEExMyAxMyAwIDAgMCAxMSAxNEg1YTIgMiAwIDAgMS0yLTJWOGEyIDIgMCAwIDEgMi0yeiIvPjxwYXRoIGQ9Ik02IDE0YTEyIDEyIDAgMCAwIDIuNCA3LjIgMiAyIDAgMCAwIDMuMi0yLjRBOCA4IDAgMCAxIDEwIDE0Ii8+PHBhdGggZD0iTTggNnY4Ii8+PC9zdmc+")
 
   &:popover-open
+    visibility: visible
     opacity: 1
+
+    & .toast
+      opacity: 1
 
   & .toast
     width: 75%
@@ -71,3 +84,14 @@ footer
       outline-width: 2px
       outline-style: dashed
       outline-color: green
+
+    & button.close
+      cursor: pointer
+
+    & p
+      text-align: center
+
+@starting-style
+  #toaster
+    visibility: hidden
+    opacity: 0

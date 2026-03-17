@@ -28,14 +28,12 @@ const makePageApp = () => {
       }
 
       if (toRemove == -1) {
-        _$notification.style.setProperty('opacity', '0');
         _$notification.remove();
         return;
       }
 
       _gcClose = notifications[toRemove];
       _gcClose.cancel.abort();
-      _gcClose.$elm.style.setProperty('opacity', '0');
       notifications = notifications.toSpliced(toRemove, 1);
       _gcClose.$elm.remove();
     }, {signal: _notiAbortController.signal});
@@ -47,7 +45,6 @@ const makePageApp = () => {
       const _gcBye = notifications.shift();
 
       _gcBye.cancel.abort();
-      _gcBye.$elm.style.setProperty('opacity', '0');
       _gcBye.$elm.remove();
     }
 
