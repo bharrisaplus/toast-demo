@@ -1,0 +1,73 @@
+html::before
+  content: 'CodePen ♥ The Web'
+  position: fixed
+  inset: 0
+  z-index: -1
+  margin: auto
+  width: fit-content
+  height: fit-content
+  font-family: monospace
+  opacity: 0.6
+  background: rebeccapurple
+  color: white
+  padding: 4px 8px
+  border-radius: 4px
+
+html
+  height: 100%
+  width: 100%
+
+body
+  height: calc(100% - 16px)
+  width: calc(100% - 16px)
+  margin: 8px
+
+#shell
+  height: 100%
+  width: 100%
+
+  & button#lever
+    font-size: 13px
+    max-height: 24px
+    width: fit-content
+
+footer
+  display: none
+
+#toaster
+  height: 90%
+  width: 250px
+  display: flex
+  position: fixed
+  inset: unset
+  right: 18px
+  bottom: 5%
+  border-width: 0
+  border-radius: 4.5%
+  z-index: 2
+  background: transparent
+  opacity: 0
+  pointer-events: none
+  flex-flow: column-reverse nowrap
+  gap: 18px 0
+  align-items: center
+
+  &:popover-open
+    opacity: 1
+
+  & .toast
+    width: 75%
+    max-height: 30%
+    pointer-events: auto
+    border-radius: 4.5%
+    border-width: 0
+    background: rgba(205, 205, 205, 0.5)
+
+    &:nth-child(2)
+      outline-width: 2px
+      outline-style: dashed
+      outline-color: red
+    &:nth-child(3)
+      outline-width: 2px
+      outline-style: dashed
+      outline-color: green
